@@ -1,0 +1,32 @@
+version: "2"
+
+services:
+  nginx:
+    # hostname: testnginx
+    # domainname: testnginx.local
+    image: nginx:1.17.5
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "3080:80"
+    depends_on:
+      - api
+    networks:
+      - test_external_net
+        # aliases:
+          # - testnginx
+  api:
+    # hostname: testapi
+    # domainname: testapi.local
+    image: hashicorp/http-echo
+    command: ["-text", "Hello Docker compose"]
+    ports:
+      - 5678:5678
+    networks:
+      - test_external_net
+        # aliases:
+          # - testapi
+
+networks:
+  test_external_net:
+    external: true

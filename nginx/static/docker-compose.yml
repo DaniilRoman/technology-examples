@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./root:/etc/nginx/root
+      - ./htpasswd:/etc/nginx/htpasswd
+    command: nginx -g 'daemon off;' 
+    ports:
+      - 81:8080

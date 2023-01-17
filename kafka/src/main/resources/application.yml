@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      transaction-id-prefix: tx- # to enable kafka transaction manager auto configuration
+
+
+custom-kafka:
+  topic:
+    name:
+      test-input: testTopic
+      test-output: testTopic
+  consumer-group-id: test-kafka-app
+  offset-reset: latest
+  concurrency: 5
+
+
