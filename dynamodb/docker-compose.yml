@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+
+  dynamodb:
+    image: amazon/dynamodb-local:1.19.0
+    ports:
+      - 8000:8000
+    environment:
+      AWS_ACCESS_KEY_ID: 'DUMMYIDEXAMPLE'
+      AWS_SECRET_ACCESS_KEY: 'DUMMYEXAMPLEKEY'
