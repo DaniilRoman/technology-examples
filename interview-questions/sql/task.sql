@@ -1,5 +1,3 @@
--- get profit by department where profit more than 1000
-
 select d.name, sum(amount) as sum_amount  from sales
     join departments d on d.id = sales.department_id
                                                  group by d.name
